@@ -8,6 +8,7 @@ import { persistor, store } from './store';
 
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import React from 'react';
@@ -19,13 +20,15 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   // <React.StrictMode>
-  <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </PersistGate>
-  </Provider>
+  <HelmetProvider>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
+  </HelmetProvider>
   // </React.StrictMode>
 );
 

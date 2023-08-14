@@ -9,8 +9,22 @@ import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
 import Footer from './Footer';
 import Header from './Header';
+import { LinkBehavior } from '../auth/infraestructure/ui/utils/LinkBehavior';
 
-let theme = createTheme({});
+let theme = createTheme({
+  components: {
+    MuiLink: {
+      defaultProps: {
+        component: LinkBehavior
+      }
+    },
+    MuiButtonBase: {
+      defaultProps: {
+        LinkComponent: LinkBehavior
+      }
+    }
+  }
+});
 theme = responsiveFontSizes(theme);
 
 export default function Layout({ children }: { children: JSX.Element }) {

@@ -1,46 +1,71 @@
-# Getting Started with Create React App
+# README para el Desafío Frontend en React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+## Introducción
 
-In the project directory, you can run:
+Este proyecto es un desafío frontend diseñado para medir habilidades en Javascript y el uso de APIs. A continuación, se describen las instrucciones para la configuración y ejecución del proyecto, así como una breve descripción de sus funcionalidades.
 
-### `npm start`
+## Funcionalidades
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. **Login**: Permite iniciar sesión utilizando usuario y clave (simulado con la API de Reqres).
+2. **Registro**: Formulario para registrarse (simulado con la API de Reqres).
+3. **Home**: Al ingresar, se muestran tres listas con personajes, ubicaciones y episodios de "Rick & Morty" (obtenidos desde su respectiva API). Además, hay un cuadro de texto que permite filtrar estas listas por nombre.
+4. **Detalles**: Posibilidad de ver detalles de personajes, ubicaciones y episodios seleccionados desde el Home.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Pre-requisitos
 
-### `npm test`
+- Tener instalado Node.js y npm/yarn.
+- IDE de preferencia (sin restricciones).
+- Conexión a internet (para consumir las APIs).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Instrucciones de instalación y ejecución
 
-### `npm run build`
+1. **Clonar el Repositorio**:
+    ```bash
+    git clone [enlace_del_repositorio]
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Entrar en la Carpeta del Proyecto**:
+    ```bash
+    cd [nombre_del_proyecto]
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **Instalar las Dependencias**:
+   Con npm:
+    ```bash
+    npm install
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   O con yarn:
+    ```bash
+    yarn
+    ```
 
-### `npm run eject`
+4. **Ejecutar el Proyecto**:
+   Con npm:
+    ```bash
+    npm start
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+   O con yarn:
+    ```bash
+    yarn start
+    ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+El proyecto debería abrirse automáticamente en tu navegador predeterminado, en general en la dirección `http://localhost:3000/`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Consideraciones adicionales
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Si alguna imagen no está disponible, se utilizará un servicio de placeholder para reemplazarla.
+- Este proyecto está diseñado siguiendo prácticas de Clean Code, Git Flow, y varios otros criterios mencionados en el enunciado del desafío.
+- Se pueden importar librerías adicionales de JavaScript o CSS según se requiera.
 
-## Learn More
+## Despliegue
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Para ver el proyecto desplegado, visita [enlace_del_sitio_web].
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
+
+¡Gracias por revisar este proyecto! Si tienes alguna pregunta o comentario, no dudes en abrir un issue en este repositorio.
+
