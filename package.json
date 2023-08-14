@@ -1,6 +1,7 @@
 {
-  "name": "rentapp-prueba",
+  "name": "prueba-tecnica-reactjs",
   "version": "0.1.0",
+  "homepage": "https://err0r403.github.io/prueba-tecnica-reactjs",
   "private": true,
   "dependencies": {
     "@babel/preset-env": "^7.22.10",
@@ -44,6 +45,8 @@
     }
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -68,6 +71,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^6.0.0",
     "ts-jest": "^29.1.1"
   }
 }
