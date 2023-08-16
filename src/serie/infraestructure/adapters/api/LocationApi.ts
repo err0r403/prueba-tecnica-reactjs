@@ -1,21 +1,15 @@
 import { LocationFilter } from '../../../domain/entities/Location';
 import { LocationRepository } from '../../../domain/repositories/LocationRepository';
 import axios from 'axios';
-import queryString from 'query-string';
 
 const API_URL = 'https://rickandmortyapi.com/api/location';
 
 export class LocationApi implements LocationRepository {
   async getAll({ page, name }: LocationFilter) {
-    const params = queryString.stringify(
-      {
-        page,
-        name
-      },
-      {
-        skipNull: true
-      }
-    );
+    let params = `page=${page}`;
+    if (name?.length) {
+      params = params.concat(`&name=${name}`);
+    }
     const response = await axios.get(`${API_URL}?${params}`);
     return response.data;
   }

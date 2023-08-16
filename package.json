@@ -4,6 +4,7 @@
   "homepage": "https://err0r403.github.io/prueba-tecnica-reactjs",
   "private": true,
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@babel/preset-env": "^7.22.10",
     "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "^7.22.5",
@@ -23,10 +24,8 @@
     "@types/react-dom": "^18.2.7",
     "axios": "^1.4.0",
     "formik": "^2.4.3",
-    "i": "^0.3.7",
     "mui-image": "^1.0.7",
     "npm": "^9.8.1",
-    "query-string": "^8.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^1.3.0",

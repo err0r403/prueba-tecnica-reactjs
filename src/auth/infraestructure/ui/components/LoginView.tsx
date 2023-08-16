@@ -4,6 +4,8 @@ import { Navigate } from 'react-router-dom';
 import { RootState } from '../../../../store';
 import { useSelector } from 'react-redux';
 
+import { Helmet } from 'react-helmet-async';
+
 export default function LoginView() {
   const token = useSelector((state: RootState) => state.auth.token);
 
@@ -12,7 +14,12 @@ export default function LoginView() {
   }
   return (
     <Layout>
-      <LoginForm />
+      <>
+        <Helmet>
+          <title>RentApp | Login</title>
+        </Helmet>
+        <LoginForm />
+      </>
     </Layout>
   );
 }

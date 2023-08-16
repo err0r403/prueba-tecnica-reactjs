@@ -20,6 +20,8 @@ import { fetchEpisode } from '../../../slices/EpisodeSlice';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+import { Helmet } from 'react-helmet-async';
+
 const EpisodeContainer = styled(Box)(({ theme }) => ({
   flex: 1,
   flexDirection: 'row',
@@ -40,72 +42,83 @@ export function EpisodeDetailView() {
 
   return (
     <Layout>
-      <Box pt={2}>
-        <Breadcrumbs aria-label="breadcrumb">
-          <Link underline="hover" fontWeight={'bold'} color="primary" href="/">
-            Home
-          </Link>
-          <Typography color="inherit" fontWeight={'bold'}>
-            Episode
-          </Typography>
-          <Typography color="inherit">{episode?.name}</Typography>
-        </Breadcrumbs>
+      <>
+        <Helmet>
+          <title>RentApp | Episode | {episode?.name}</title>
+        </Helmet>
+        <Box pt={2}>
+          <Breadcrumbs aria-label="breadcrumb">
+            <Link
+              underline="hover"
+              fontWeight={'bold'}
+              color="primary"
+              href="/">
+              Home
+            </Link>
+            <Typography color="inherit" fontWeight={'bold'}>
+              Episode
+            </Typography>
+            <Typography color="inherit">{episode?.name}</Typography>
+          </Breadcrumbs>
 
-        <EpisodeContainer pt={2}>
-          <Box flex={1}>
-            <Box flex={1} sx={{ display: 'flex', flexDirection: 'column' }}>
-              <Box flex={1}>
-                <Box flex={1} sx={{ display: 'flex', flexDirection: 'column' }}>
-                  <Box px={2}>
-                    <Typography
-                      variant="h4"
-                      fontWeight={'bold'}
-                      sx={{}}
-                      color={'primary'}>
-                      {episode?.name}
-                    </Typography>
+          <EpisodeContainer pt={2}>
+            <Box flex={1}>
+              <Box flex={1} sx={{ display: 'flex', flexDirection: 'column' }}>
+                <Box flex={1}>
+                  <Box
+                    flex={1}
+                    sx={{ display: 'flex', flexDirection: 'column' }}>
+                    <Box px={2}>
+                      <Typography
+                        variant="h4"
+                        fontWeight={'bold'}
+                        sx={{}}
+                        color={'primary'}>
+                        {episode?.name}
+                      </Typography>
+                    </Box>
                   </Box>
+                  <List dense={false} sx={{ flex: 1, py: 0, pt: 2 }}>
+                    <ListItem>
+                      <ListItemIcon sx={{ minWidth: '30px' }}>
+                        <NumbersIcon />
+                      </ListItemIcon>
+                      <ListItemText
+                        sx={{ width: '150px' }}
+                        primaryTypographyProps={{ fontWeight: 'bold' }}
+                        primary="ID"
+                      />
+                      <Typography>{episode?.id}</Typography>
+                    </ListItem>
+                    <ListItem>
+                      <ListItemIcon sx={{ minWidth: '30px' }}>
+                        <CalendarTodayIcon />
+                      </ListItemIcon>
+                      <ListItemText
+                        sx={{ width: '150px' }}
+                        primaryTypographyProps={{ fontWeight: 'bold' }}
+                        primary="Air date"
+                      />
+                      <Typography>{episode?.air_date}</Typography>
+                    </ListItem>
+                    <ListItem>
+                      <ListItemIcon sx={{ minWidth: '30px' }}>
+                        <VideocamIcon />
+                      </ListItemIcon>
+                      <ListItemText
+                        sx={{ width: '150px' }}
+                        primaryTypographyProps={{ fontWeight: 'bold' }}
+                        primary="Episode"
+                      />
+                      <Typography>{episode?.episode}</Typography>
+                    </ListItem>
+                  </List>
                 </Box>
-                <List dense={false} sx={{ flex: 1, py: 0, pt: 2 }}>
-                  <ListItem>
-                    <ListItemIcon sx={{ minWidth: '30px' }}>
-                      <NumbersIcon />
-                    </ListItemIcon>
-                    <ListItemText
-                      sx={{ width: '150px' }}
-                      primaryTypographyProps={{ fontWeight: 'bold' }}
-                      primary="ID"
-                    />
-                    <Typography>{episode?.id}</Typography>
-                  </ListItem>
-                  <ListItem>
-                    <ListItemIcon sx={{ minWidth: '30px' }}>
-                      <CalendarTodayIcon />
-                    </ListItemIcon>
-                    <ListItemText
-                      sx={{ width: '150px' }}
-                      primaryTypographyProps={{ fontWeight: 'bold' }}
-                      primary="Air date"
-                    />
-                    <Typography>{episode?.air_date}</Typography>
-                  </ListItem>
-                  <ListItem>
-                    <ListItemIcon sx={{ minWidth: '30px' }}>
-                      <VideocamIcon />
-                    </ListItemIcon>
-                    <ListItemText
-                      sx={{ width: '150px' }}
-                      primaryTypographyProps={{ fontWeight: 'bold' }}
-                      primary="Episode"
-                    />
-                    <Typography>{episode?.episode}</Typography>
-                  </ListItem>
-                </List>
               </Box>
             </Box>
-          </Box>
-        </EpisodeContainer>
-      </Box>
+          </EpisodeContainer>
+        </Box>
+      </>
     </Layout>
   );
 }

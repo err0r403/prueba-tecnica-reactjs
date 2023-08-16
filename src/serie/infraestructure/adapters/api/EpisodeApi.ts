@@ -1,21 +1,15 @@
 import { EpisodeFilter } from '../../../domain/entities/Episode';
 import { EpisodeRepository } from '../../../domain/repositories/EpisodeRepository';
 import axios from 'axios';
-import queryString from 'query-string';
 
 const API_URL = 'https://rickandmortyapi.com/api/episode';
 
 export class EpisodeApi implements EpisodeRepository {
   async getAll({ page, name }: EpisodeFilter) {
-    const params = queryString.stringify(
-      {
-        page,
-        name
-      },
-      {
-        skipNull: true
-      }
-    );
+    let params = `page=${page}`;
+    if (name?.length) {
+      params = params.concat(`&name=${name}`);
+    }
     const response = await axios.get(`${API_URL}?${params}`);
     return response.data;
   }

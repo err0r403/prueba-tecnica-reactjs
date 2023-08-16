@@ -4,10 +4,10 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
+import { RouterProvider, createHashRouter } from 'react-router-dom';
 import { persistor, store } from './store';
 
 import App from './App';
-import { RouterProvider, createHashRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';

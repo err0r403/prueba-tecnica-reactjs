@@ -3,10 +3,9 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import { CharacterApi } from '../adapters/api/CharacterApi';
 import CharacterController from '../controllers/CharacterController';
-import { RootState } from '../../../store';
 import storage from 'redux-persist/lib/storage';
 
-interface CharacterState {
+export interface CharacterState {
   results: Character[];
   isLoading: boolean;
   error: string | undefined;
@@ -128,7 +127,5 @@ export const characterSlice = createSlice({
 });
 
 export const { setFilter, setPage } = characterSlice.actions;
-// Other code such as selectors can use the imported `RootState` type
-// export const selectCount = (state: RootState) => state.users.users
 
 export default characterSlice.reducer;

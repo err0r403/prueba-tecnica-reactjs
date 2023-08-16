@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import Layout from '../../../../layout/Layout';
 import { Navigate } from 'react-router-dom';
 import { RegisterForm } from '../forms/RegisterForm';
@@ -12,7 +13,12 @@ export default function RegisterView() {
   }
   return (
     <Layout>
-      <RegisterForm />
+      <>
+        <Helmet>
+          <title>RentApp | Register</title>
+        </Helmet>
+        <RegisterForm />
+      </>
     </Layout>
   );
 }

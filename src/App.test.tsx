@@ -1,11 +1,29 @@
-import React from 'react';
-import { screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { MemoryRouter } from 'react-router-dom';
 import App from './App';
+import { MemoryRouter } from 'react-router-dom';
+import React from 'react';
 import { renderWithProviders } from '../utils/test-utils';
+import { screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
-test('full app rendering/navigating', async () => {
+test('App rendering /authentication/login', async () => {
+  const route = '/authentication/login';
+  renderWithProviders(
+    <MemoryRouter initialEntries={[route]}>
+      <App />
+    </MemoryRouter>
+  );
+
+  expect(
+    screen.getByText('Login', {
+      selector: 'h3'
+    })
+  ).toBeInTheDocument();
+
+  expect(screen.getByLabelText('Email')).toBeInTheDocument();
+  expect(screen.getByLabelText('Password')).toBeInTheDocument();
+});
+
+test('App login /authentication/login', async () => {
   const route = '/authentication/login';
   renderWithProviders(
     <MemoryRouter initialEntries={[route]}>
@@ -13,13 +31,28 @@ test('full app rendering/navigating', async () => {
     </MemoryRouter>
   );
   const user = userEvent;
-  // expect(screen.getByText(/no match/i)).toBeInTheDocument();
-  expect(screen.getByText(/RentApp/i)).toBeInTheDocument();
 
-  // verify page content for default route
-  // expect(screen.getByText(/you are home/i)).toBeInTheDocument();
+  expect(
+    screen.getByText('Login', {
+      selector: 'h3'
+    })
+  ).toBeInTheDocument();
 
-  // verify page content for expected route after navigating
-  // await user.click(screen.getByText(/about/i));
-  // expect(screen.getByText(/you are on the about page/i)).toBeInTheDocument();
+  const inputEmail = screen.getByLabelText('Email');
+  const inputPassword = screen.getByLabelText('Password');
+
+  expect(inputEmail).toBeInTheDocument();
+  expect(inputPassword).toBeInTheDocument();
+
+  user.type(inputEmail, 'eve.holt@reqres.in');
+  user.type(inputPassword, 'pistol');
+
+  await user.click(screen.getByText(/Login/i, { selector: 'button' }));
+
+  // Wait for the navigation to complete and the next page to load
+  await waitFor(() => {
+    expect(
+      screen.getByText(/Characters List/i, { selector: 'h4' })
+    ).toBeInTheDocument();
+  });
 });

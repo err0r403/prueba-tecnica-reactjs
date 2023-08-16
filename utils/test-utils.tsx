@@ -1,9 +1,11 @@
+import { store as AppStore, RootState, setupStore } from '../src/store';
 import React, { PropsWithChildren } from 'react';
-import { render } from '@testing-library/react';
-import type { RenderOptions } from '@testing-library/react';
+
+import { HelmetProvider } from 'react-helmet-async';
 import type { PreloadedState } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
-import { store as AppStore, RootState, setupStore } from '../src/store';
+import type { RenderOptions } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 // import type { AppStore, RootState } from '../app/store';
 // As a basic setup, import your same slice reducers
@@ -25,7 +27,11 @@ export function renderWithProviders(
   }: ExtendedRenderOptions = {}
 ) {
   function Wrapper({ children }: PropsWithChildren<{}>): JSX.Element {
-    return <Provider store={store}>{children}</Provider>;
+    return (
+      <HelmetProvider>
+        <Provider store={store}>{children}</Provider>
+      </HelmetProvider>
+    );
   }
 
   // Return an object with the store and all of RTL's query functions

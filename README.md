@@ -1,34 +1,47 @@
-# README para el Desafío Frontend en React
-
----
+# Desafío Frontend en React
 
 ## Introducción
 
-Este proyecto es un desafío frontend diseñado para medir habilidades en Javascript y el uso de APIs. A continuación, se describen las instrucciones para la configuración y ejecución del proyecto, así como una breve descripción de sus funcionalidades.
+- Este proyecto está diseñado siguiendo prácticas de Clean Code con el patrón hexagonal, Git Flow, y otros criterios mencionados en el enunciado del desafío.
+### Consideraciones
+
+Principales herramientas y tecnologias utilizadas en el proyecto:
+
+- Git flow
+- Github Pages
+- Typescript
+- ReactJs
+- React Testing Library
+- React router dom
+- Redux (con persistencia)
+- Mui (material-ui)
+- Formik
+- Yup
+
 
 ## Funcionalidades
 
 1. **Login**: Permite iniciar sesión utilizando usuario y clave (simulado con la API de Reqres).
 2. **Registro**: Formulario para registrarse (simulado con la API de Reqres).
-3. **Home**: Al ingresar, se muestran tres listas con personajes, ubicaciones y episodios de "Rick & Morty" (obtenidos desde su respectiva API). Además, hay un cuadro de texto que permite filtrar estas listas por nombre.
+3. **Home**: Al ingresar, se muestran tres listas con personajes, ubicaciones y episodios de "Rick & Morty" (Rick & Morty API). Además, hay un cuadro de texto que permite filtrar estas listas por nombre.
 4. **Detalles**: Posibilidad de ver detalles de personajes, ubicaciones y episodios seleccionados desde el Home.
 
 ## Pre-requisitos
 
 - Tener instalado Node.js y npm/yarn.
-- IDE de preferencia (sin restricciones).
+- IDE preferido.
 - Conexión a internet (para consumir las APIs).
 
 ## Instrucciones de instalación y ejecución
 
 1. **Clonar el Repositorio**:
     ```bash
-    git clone [enlace_del_repositorio]
+    git clone https://github.com/err0r403/prueba-tecnica-reactjs
     ```
 
 2. **Entrar en la Carpeta del Proyecto**:
     ```bash
-    cd [nombre_del_proyecto]
+    cd prueba-tecnica-reactjs
     ```
 
 3. **Instalar las Dependencias**:
@@ -53,17 +66,24 @@ Este proyecto es un desafío frontend diseñado para medir habilidades en Javasc
     yarn start
     ```
 
+5. **Ejecutar Tests**:
+   Con npm:
+    ```bash
+    npm test
+    ```
+
+   O con yarn:
+    ```bash
+    yarn test
+    ```
+
 El proyecto debería abrirse automáticamente en tu navegador predeterminado, en general en la dirección `http://localhost:3000/`.
 
-## Consideraciones adicionales
-
-- Si alguna imagen no está disponible, se utilizará un servicio de placeholder para reemplazarla.
-- Este proyecto está diseñado siguiendo prácticas de Clean Code, Git Flow, y varios otros criterios mencionados en el enunciado del desafío.
-- Se pueden importar librerías adicionales de JavaScript o CSS según se requiera.
+El email usado para login/registro "eve.holt@reqres.in" + cualquier contraseña.
 
 ## Despliegue
 
-Para ver el proyecto desplegado, visita [enlace_del_sitio_web].
+Para ver el proyecto desplegado, visita el [sitio en Github Pages](https://err0r403.github.io/prueba-tecnica-reactjs/).
 
 ---
 

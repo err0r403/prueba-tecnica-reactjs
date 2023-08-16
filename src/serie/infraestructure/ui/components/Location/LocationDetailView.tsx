@@ -20,6 +20,8 @@ import { fetchLocation } from '../../../slices/LocationSlice';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+import { Helmet } from 'react-helmet-async';
+
 const LocationContainer = styled(Box)(({ theme }) => ({
   flex: 1,
   flexDirection: 'row',
@@ -40,70 +42,79 @@ export function LocationDetailView() {
 
   return (
     <Layout>
-      <Box pt={2}>
-        <Breadcrumbs aria-label="breadcrumb">
-          <Link underline="hover" fontWeight={'bold'} color="primary" href="/">
-            Home
-          </Link>
-          <Typography color="inherit" fontWeight={'bold'}>
-            Location
-          </Typography>
-          <Typography color="inherit">{location?.name}</Typography>
-        </Breadcrumbs>
+      <>
+        <Helmet>
+          <title>RentApp | Location | {location?.name}</title>
+        </Helmet>
+        <Box pt={2}>
+          <Breadcrumbs aria-label="breadcrumb">
+            <Link
+              underline="hover"
+              fontWeight={'bold'}
+              color="primary"
+              href="/">
+              Home
+            </Link>
+            <Typography color="inherit" fontWeight={'bold'}>
+              Location
+            </Typography>
+            <Typography color="inherit">{location?.name}</Typography>
+          </Breadcrumbs>
 
-        <LocationContainer pt={2}>
-          <Box flex={1}>
-            <Box flex={1} sx={{ display: 'flex', flexDirection: 'column' }}>
+          <LocationContainer pt={2}>
+            <Box flex={1}>
               <Box flex={1} sx={{ display: 'flex', flexDirection: 'column' }}>
-                <Box px={2}>
-                  <Typography
-                    variant="h4"
-                    fontWeight={'bold'}
-                    sx={{}}
-                    color={'primary'}>
-                    {location?.name}
-                  </Typography>
+                <Box flex={1} sx={{ display: 'flex', flexDirection: 'column' }}>
+                  <Box px={2}>
+                    <Typography
+                      variant="h4"
+                      fontWeight={'bold'}
+                      sx={{}}
+                      color={'primary'}>
+                      {location?.name}
+                    </Typography>
+                  </Box>
                 </Box>
+                <List dense={false} sx={{ flex: 1, py: 0, pt: 2 }}>
+                  <ListItem>
+                    <ListItemIcon sx={{ minWidth: '30px' }}>
+                      <NumbersIcon />
+                    </ListItemIcon>
+                    <ListItemText
+                      sx={{ width: '150px' }}
+                      primaryTypographyProps={{ fontWeight: 'bold' }}
+                      primary="ID"
+                    />
+                    <Typography>{location?.id}</Typography>
+                  </ListItem>
+                  <ListItem>
+                    <ListItemIcon sx={{ minWidth: '30px' }}>
+                      <BloodtypeIcon />
+                    </ListItemIcon>
+                    <ListItemText
+                      sx={{ width: '150px' }}
+                      primaryTypographyProps={{ fontWeight: 'bold' }}
+                      primary="Type"
+                    />
+                    <Typography>{location?.type}</Typography>
+                  </ListItem>
+                  <ListItem>
+                    <ListItemIcon sx={{ minWidth: '30px' }}>
+                      <ViewInArIcon />
+                    </ListItemIcon>
+                    <ListItemText
+                      sx={{ width: '150px' }}
+                      primaryTypographyProps={{ fontWeight: 'bold' }}
+                      primary="Dimension"
+                    />
+                    <Typography>{location?.dimension}</Typography>
+                  </ListItem>
+                </List>
               </Box>
-              <List dense={false} sx={{ flex: 1, py: 0, pt: 2 }}>
-                <ListItem>
-                  <ListItemIcon sx={{ minWidth: '30px' }}>
-                    <NumbersIcon />
-                  </ListItemIcon>
-                  <ListItemText
-                    sx={{ width: '150px' }}
-                    primaryTypographyProps={{ fontWeight: 'bold' }}
-                    primary="ID"
-                  />
-                  <Typography>{location?.id}</Typography>
-                </ListItem>
-                <ListItem>
-                  <ListItemIcon sx={{ minWidth: '30px' }}>
-                    <BloodtypeIcon />
-                  </ListItemIcon>
-                  <ListItemText
-                    sx={{ width: '150px' }}
-                    primaryTypographyProps={{ fontWeight: 'bold' }}
-                    primary="Type"
-                  />
-                  <Typography>{location?.type}</Typography>
-                </ListItem>
-                <ListItem>
-                  <ListItemIcon sx={{ minWidth: '30px' }}>
-                    <ViewInArIcon />
-                  </ListItemIcon>
-                  <ListItemText
-                    sx={{ width: '150px' }}
-                    primaryTypographyProps={{ fontWeight: 'bold' }}
-                    primary="Dimension"
-                  />
-                  <Typography>{location?.dimension}</Typography>
-                </ListItem>
-              </List>
             </Box>
-          </Box>
-        </LocationContainer>
-      </Box>
+          </LocationContainer>
+        </Box>
+      </>
     </Layout>
   );
 }
